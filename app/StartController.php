@@ -21,6 +21,23 @@
 		{
 			$sparrowDb = new Sparrow();
 
+			$templateEngine = new Template();
+
+			$template->title = "Variable example";
+
+			$template->array = array(
+				'1' => "First array item",
+				'2' => "Second array item",
+				'n' => "N-th array item",
+			);
+
+			$template->j = 5;
+
+			$template
+				->setFile('index.phtml')
+				->setLayout('@layout.phtml')
+				->render();
+
 			$test = 123;
 		}
 
