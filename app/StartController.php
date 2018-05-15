@@ -12,7 +12,7 @@
 	{
 		protected $params = array();
 
-		public function __construct(array $params)
+		public function __construct($params)
 		{
 			$this->params = $params;
 		}
@@ -23,22 +23,20 @@
 
 			$templateEngine = new Template();
 
-			$template->title = "Variable example";
+			$templateEngine->title = "Variable example";
 
-			$template->array = array(
+			$templateEngine->array = array(
 				'1' => "First array item",
 				'2' => "Second array item",
 				'n' => "N-th array item",
 			);
 
-			$template->j = 5;
+			$templateEngine->j = 5;
 
-			$template
-				->setFile('index.phtml')
-				->setLayout('@layout.phtml')
+			$templateEngine
+				->setFile('view/index.phtml')
+				->setLayout('view/layout.phtml')
 				->render();
-
-			$test = 123;
 		}
 
 	}

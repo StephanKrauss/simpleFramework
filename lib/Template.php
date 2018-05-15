@@ -94,9 +94,17 @@ class Template{
 		return $this;
 	}
 
-	/*set function for main template only*/
-	public function setFile($template){
+	/**
+	 * set function for main template only
+	 *
+	 * @param $template
+	 *
+	 * @return $this
+	 */
+	public function setFile($template)
+	{
 		$this->file = $template;
+
 		return $this;
 	}
 
@@ -124,20 +132,29 @@ class Template{
 		}
 	}
 
-	/*render template*/
-	public function render(){
+	/**
+	 * render template
+	 *
+	 * @return mixed
+	 * @throws \Exception
+	 */
+	public function render()
+	{
 		//are we using layout?
 		if(!empty($this->layout)){
 			if(is_file($this->layout)){
 				//compile whole layout
 				$template = $this->compile($this->layout);
-			}else{
+			}
+			else{
 				throw new Exception("Missing layout template file '".$this->layout."'.");
 			}
-		}else{
+		}
+		else{
 			//or compile only main template file
 			$template = $this->compile($this->file);
 		}
+
 		//evaluate compiled code
 		return $this->evaluate($template, $this->getVars());
 	}
