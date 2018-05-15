@@ -19,6 +19,8 @@
 
 		public function start()
 		{
+			$sparrowDb = new Sparrow();
+
 			$test = 123;
 		}
 
