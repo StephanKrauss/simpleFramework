@@ -1,18 +1,18 @@
 <?php
 
-function exception_error_handler($severity, $message, $file, $line)
-{
-	if (!(error_reporting() & $severity)) {
-
-		echo "Dieser Fehlercode ist nicht in error_reporting enthalten";
-
-		return;
-	}
-
-	new ErrorException($message, 0, $severity, $file, $line);
-}
-
-/** noch testen **/
+//function exception_error_handler($severity, $message, $file, $line)
+//{
+//	if (!(error_reporting() & $severity)) {
+//
+//		echo "Dieser Fehlercode ist nicht in error_reporting enthalten";
+//
+//		return;
+//	}
+//
+//	new ErrorException($message, 0, $severity, $file, $line);
+//}
+//
+///** noch testen **/
 //function custom_error_handler($number, $string, $file, $line, $context)
 //{
 //	// Determine if this error is one of the enabled ones in php config (php.ini, .htaccess, etc)
@@ -28,11 +28,14 @@ function exception_error_handler($severity, $message, $file, $line)
 //	// Log the error if it's enabled, otherwise just ignore it
 //	else if( $error_is_enabled ) {
 //		error_log( $string, 0 );
-//		return false; // Make sure this ends up in $php_errormsg, if appropriate
+//
+//		// Make sure this ends up in $php_errormsg, if appropriate
+//		return false;
 //	}
 //}
-
-set_error_handler("exception_error_handler");
+//
+//set_error_handler("exception_error_handler");
+//set_exception_handler("custom_error_handler");
 	
 function __autoload($className)
 {
