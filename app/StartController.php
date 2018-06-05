@@ -34,8 +34,8 @@
 			$templateEngine->j = 5;
 
 			$templateEngine
-				->setFile('view/index.phtml')
-				->setLayout('view/layout.phtml')
+				->setFile('../view/index.phtml')
+				->setLayout('../view/layout.phtml')
 				->render();
 		}
 
