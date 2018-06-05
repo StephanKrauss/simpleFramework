@@ -10,18 +10,23 @@
 	 */
 	class StartController
 	{
+		/** @var $params array  */
 		protected $params = array();
 
-		public function __construct($params)
+		/** @var $container Container  */
+		protected $container = null;
+
+		public function __construct($params, $container)
 		{
 			$this->params = $params;
+			$this->container = $container;
 		}
 
 		public function start()
 		{
-			$sparrowDb = new Sparrow();
+			$sparrowDb = $this->container->get('Datenbank');
 
-			$templateEngine = new Template();
+			$templateEngine = $this->container->get('Template');
 
 			$templateEngine->title = "Variable example";
 
